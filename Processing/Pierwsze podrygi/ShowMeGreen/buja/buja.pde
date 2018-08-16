@@ -1,6 +1,11 @@
 import processing.sound.*;
-
 import processing.video.*;
+
+
+/*/
+  Problem z dzwiekiem
+  nie laduje pliku
+/*/
 int sum;
 int loop = 0;
 Capture video;
@@ -34,14 +39,14 @@ void draw(){
     for(int y = 0; y < height-1; y++){
       int loc = x + y *width;
       int loc2 = width-x + y*width; // odbicie lustrzane
-      int a = int(brightness(video.pixels[loc]));
-      int c = int(brightness(video.pixels[loc+1]));
-      int diff = c - a;
+    //  int a = int(brightness(video.pixels[loc]));
+     // int c = int(brightness(video.pixels[loc+1]));
+    //  int diff = c - a;
       int r = int(red(video.pixels[loc]));
       int g = int(green(video.pixels[loc]));
       int b = int(blue(video.pixels[loc]));
       
-      if(g > 100 && r < 160 && b < 20){
+      if(g > 180 && r < 100){
         pixels[loc2] = color(0, 0, 0);
         r = 0;
         g = 0;
@@ -64,9 +69,11 @@ void draw(){
     duration++;
     
   }
-  if(duration > 0)
-      shout.play();
-      System.out.println(duration);
+  if(duration > 0) {
+    //shout.play();
+  }
+      
+ //     System.out.println(duration);
   //image(video,0,0,width,height);
   
 }
